@@ -2,6 +2,7 @@ import win32com.client as win32
 
 
 def get_cell_value(sheet, row, col):
+    """Access cell values using row and column index in openpyxl"""
     return sheet.cell(row=row, column=col).value
 
 
