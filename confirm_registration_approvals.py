@@ -4,16 +4,16 @@ from datetime import datetime
 from outlook_utils import get_cell_value, write_email_content, send_new_email
 
 # User Inputs
-workbook = "C:\\Users\\thindle2016\\Florida Atlantic University\\FAU Lab Schools Research Department - Fall_2024_Registration_Materials\\Fall 2024 Research Courses Form.xlsx"
-term = "Fall 2024"
+workbook = r"C:\Users\thindle2016\Florida Atlantic University\FAU Lab Schools Research Department - Documents\FAUHS Research Program\Research Courses\Forms\Course signup forms\Spring_2025_Registration_Materials\Spring 2025 Research Courses Form.xlsx"
+term = "Spring 2025"
 outlook_account = "fauhsresearch@fau.edu"
 
 # Specify column index
 names = 8
 emails = 9
 courses = 12
-EDF2910_sections = 13
-EDF3912_sections = 14
+EDF2911_sections = 13
+EDF3913_sections = 14
 status_col = 16
 last_updated = 17
 
@@ -31,9 +31,9 @@ for row in range(2, row_count + 1):
         recipient = get_cell_value(ws, row, emails)
         course = get_cell_value(ws, row, courses)
 
-        EDF2910 = get_cell_value(ws, row, EDF2910_sections) # course 1
-        EDF3912 = get_cell_value(ws, row, EDF3912_sections) # course 2
-        section = EDF3912 if EDF2910 is None else EDF2910
+        EDF2911 = get_cell_value(ws, row, EDF2911_sections) # course 1
+        EDF3913 = get_cell_value(ws, row, EDF3913_sections) # course 2
+        section = EDF3913 if EDF2911 is None else EDF2911
         
         subject, body = write_email_content(name, term, course, section)
 
